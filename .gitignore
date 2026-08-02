@@ -1,75 +1,168 @@
 # ============================================================
-# my_Notes .gitignore  (合规复查于 2026-08-02)
-# 原则：笔记源码入库，密钥/大文件/第三方仓库留本地
+# my_Notes .gitignore
+# Keep notes/source files in Git; keep local caches, secrets,
+# generated artifacts, large datasets, and binary build outputs out.
 # ============================================================
 
-# ---------- IDE / OS ----------
+# ---------- OS / editor ----------
+.DS_Store
+Thumbs.db
+desktop.ini
 .idea/
 .vscode/
-*.DS_Store
+*.code-workspace
 
-# ---------- Obsidian 本地配置（含插件与缓存） ----------
+# ---------- Obsidian / local note app state ----------
 .obsidian/
+
+# ---------- Local assistant/tool state ----------
+.claude/
+.workbuddy/
+checkdevice.py
+pyproject.toml
+uv.lock
+
+# ---------- Secrets / local config ----------
+.env
+.env.*
+!.env.example
+*.local
+*.local.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa
+id_dsa
+id_ed25519
 
 # ---------- Python ----------
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
 .Python
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 venv/
 .venv/
+env/
+.env/
 *.egg-info/
-.python-version
 
 # ---------- Jupyter ----------
 .ipynb_checkpoints/
 
-# ---------- 凭据 / 环境变量（切勿入库） ----------
-.env
-.env.*
-*.pth
+# ---------- Node / frontend ----------
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# ---------- 数据与日志目录 ----------
-dataSet/
+# ---------- C / C++ / Visual Studio build output ----------
+*.exe
+*.dll
+*.lib
+*.obj
+*.o
+*.ilk
+*.pdb
+*.idb
+*.pch
+*.exp
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+x64/
+x86/
+Debug/
+Release/
+.vs/
+
+# ---------- Logs / runtime output ----------
+*.log
 logs/
 logs_new/
-logs_xpu
-logs_cpu
+logs_xpu/
+logs_cpu/
+*.pid
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ---------- Datasets and generated data ----------
+data/
+dataSet/
+datasets/
+dataset/
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.sqlite
+*.sqlite3
+*.db
+
+# ---------- ML models / checkpoints ----------
+models/
+model/
+weights/
+checkpoints/
 modelsave_cpu/
 modelsave_xpu/
+runs/
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+*.npy
+*.npz
 
-# ---------- 第三方克隆仓库（仅保留引用，不重复托管源码） ----------
+# ---------- Archives / disk images / installers ----------
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.iso
+*.img
+*.msi
+
+# ---------- Large media generated or downloaded locally ----------
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# ---------- Optional large exports ----------
+*.pdf
+*.xmind
+
+# ---------- Third-party cloned repositories under notes ----------
 【人工智能】大合集/vllm/vllm/
 【人工智能】大合集/vllm/LMCache/
 【人工智能】大合集/vllm/CacheBlend/
 【人工智能】大合集/vllm/qwen/
 
-# ---------- 大文件 / 二进制（留本地） ----------
-*.zip
-*.rar
-*.7z
-*.tar.gz
-*.img
-*.iso
-*.safetensors
-*.pt
-*.ckpt
-*.bin
-*.onnx
-*.npy
-*.npz
-*.pdf
-*.xmind
-
-# 特定大文件（已超阈值）
-【硬件】笔记大合集/模拟电路/《电子元器件零基础入门》.pdf
-
-# ---------- 私密 / 个人项目（严禁上传） ----------
+# ---------- Private personal folders ----------
 【私密】/
 【我的项目】/
-
-# ---------- 杂项 ----------
-checkdevice.py
-uv.lock
-pyproject.toml
