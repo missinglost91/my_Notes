@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>my_Notes 笔记知识树</title>
+<style>
+:root { --bg:#f8fafc; --text:#334155; --muted:#94a3b8; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 30%, #f1f5f9 100%);
+  color:var(--text); line-height:1.5; min-height:100vh; padding-bottom:60px; }
+
+.root-node { display:flex; justify-content:center; padding:40px 20px 0; }
+.root-inner { text-align:center; background:#fff; border-radius:50%;
+  width:210px; height:210px; display:flex; flex-direction:column; justify-content:center;
+  align-items:center; box-shadow: 0 8px 40px rgba(108,92,231,.18), 0 2px 8px rgba(0,0,0,.06);
+  border:3px solid #6C5CE7; padding:18px; position:relative; z-index:2; }
+.root-title { font-size:1.05rem; font-weight:800; color:#4a3db5; }
+.root-sub { font-size:.7rem; color:var(--muted); margin-top:6px; text-align:center; }
+.root-connector { width:3px; height:36px; background: linear-gradient(to bottom, #6C5CE7 0%, transparent 100%);
+  margin:0 auto; border-radius:2px; }
+
+.branch-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:18px;
+  max-width:1300px; margin:0 auto; padding:8px 20px 0; }
+.branch-card { background:#fff; border-radius:14px; min-width:170px; max-width:250px; flex:1 1 170px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06); overflow:hidden; transition:transform .25s,box-shadow .25s;
+  border:2px solid transparent; }
+.branch-card:hover { transform:translateY(-3px); box-shadow:0 6px 24px rgba(0,0,0,.10); border-color:var(--c); }
+.branch-head { color:#fff; font-size:.82rem; font-weight:700; padding:11px 12px; text-align:center; }
+
+.tree-list { list-style:none; }
+.l1 { padding:4px 0 4px 6px; }
+.l2,.l3 { padding-left:14px; }
+
+.tnode { position:relative; padding:0; margin:0; }
+.tnode::before { content:""; position:absolute; left:7px; top:0; bottom:0; width:2px; background:#e2e8f0; border-radius:1px; }
+.tnode:last-child::before { bottom:50%; }
+.tnode::after { content:""; position:absolute; left:7px; top:50%; width:10px; height:2px; background:#e2e8f0; border-radius:1px; }
+.tnode-leaf::after { width:15px; }
+
+.tsummary,.tsummary-sm { display:flex; align-items:center; gap:6px; padding:5px 8px 5px 20px;
+  border-radius:8px; cursor:pointer; font-size:.76rem; font-weight:600; transition:background .2s;
+  list-style:none; position:relative; z-index:1; }
+.tsummary::-webkit-details-marker,.tsummary-sm::-webkit-details-marker { display:none; }
+details[open]>.tsummary,details[open]>.tsummary-sm { background:#f1f5f9; }
+.tsummary:hover,.tsummary-sm:hover { background:#f8fafc; }
+.tlabel { flex:1; }
+.tcount { font-size:.63rem; color:var(--muted); background:#f1f5f9; padding:1px 6px; border-radius:10px; flex-shrink:0; }
+
+.tleaf { display:flex; align-items:center; gap:6px; padding:3px 8px 3px 26px;
+  font-size:.72rem; color:var(--muted); border-radius:6px; transition:color .2s,background .2s;
+  cursor:default; position:relative; z-index:1; }
+.tleaf:hover { color:var(--text); background:#f8fafc; }
+.tbullet { width:5px; height:5px; border-radius:50%; background:var(--c); flex-shrink:0; opacity:.5; }
+
+.footer { text-align:center; padding:40px 20px 20px; font-size:.76rem; color:var(--muted); }
+@media (max-width:640px) { .root-inner { width:160px;height:160px; } .branch-card { min-width:140px; } }
+</style></head>
+<body>
+<div class="root-node"><div class="root-inner">
+  <span class="root-title">my_Notes 笔记知识树</span>
+  <span class="root-sub">9 个知识域 · 163 个节点</span>
+</div></div>
+<div class="root-connector"></div>
+<div class="branch-grid">
+<div class="branch-card" style="--c:#6C5CE7">
+  <div class="branch-head" style="background:#6C5CE7">【人工智能】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">OpenCV</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第七章 图像金字塔和轮廓检测</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">7-1 轮廓检测方法</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>7-1 轮廓检测方法</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">7-2 模板匹配</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>7-2 模板匹配</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第三章 阈值与平滑处理</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">3-0 图像阈值</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>3-0 图像阈值</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">3-1 图像平滑处理</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>3-1 图像平滑处理</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第二章 图像的基本操作</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">2-1计算机眼中的图像</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>2-1计算机眼中的图像</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">2-2 视频的读取和处理</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>视频的读取和处理</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">2-3 ROI区域</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>ROI区域</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">2-4 边界填充</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>边界填充</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">2-5 数值计算</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>数值计算</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第五章 图像梯度计算</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">5-1 Sobel,scharr,laplacian算子</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>5-1  Sobel、scharr、laplacian算子</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第六章 边缘检测</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">6-1 Canny边缘检测</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>6-1 Canny边缘检测</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">第四章 图像形态学操作</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">4-1 腐蚀和膨胀操作</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>4-1 腐蚀和膨胀操作</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">OpenMV模块</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>OpenMV</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">Pytorch</span><span class="tcount">4</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>01-PyTorch基础</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>02-图像处理与数据加载</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>03-神经网络与完整训练</div>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">dataSet</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>cifar-10-batches-py</div>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">dataSet</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>train</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>val</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">data_cifar10</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>cifar-10-batches-py</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">hymenoptera_data</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>hymenoptera_data</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">logs</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>cifar10</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>logs_new</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">RAG</span><span class="tcount">4</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">RAG项目</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">data</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>尺码推荐</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>洗涤养护</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>颜色推荐</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>chat_history</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>data</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>langchain基础知识</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>随写</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">YOLO</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>yolo笔记</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">vllm</span><span class="tcount">4</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>Transformer</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>main</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>vllm入门笔记</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>超算词汇积累</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">数据分析</span><span class="tcount">3</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>Matplotlib及Seaborn入门</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>Numpy入门</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>Pandas入门</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">机器学习</span><span class="tcount">2</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>data</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>机器学习入门</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6C5CE7"><span class="tlabel">超算</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6C5CE7"><span class="tlabel">cuda入门</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6C5CE7"><span class="tbullet"></span>cuda入门</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#00B894">
+  <div class="branch-head" style="background:#00B894">【其他】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00B894"><span class="tlabel">【经验之谈】-我的一些闲言碎语 (同步CSDN)</span><span class="tcount">7</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>WorkBuddy qwen3.5-plus 间歇性 400 错误复现与修复记录</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>做深度学习的一些经验</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>关于如何用好 ai</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>写给AI小白的python环境配置</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>写给我们电赛小队的成员的入门</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>我是如何做笔记的</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>电赛校内赛</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00B894"><span class="tlabel">【锦上添花】-一些其他的技能</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#00B894"><span class="tlabel">Git和Github</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>github下载与汉化</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00B894"><span class="tlabel">【雕虫小技】-记录一些我的小项目</span><span class="tcount">2</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>【样稿】线代大作业——基于【作物土地指标合适度矩阵】来选择最优种植作物</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00B894"><span class="tbullet"></span>用【动态数组】和【文件读取】实现【通讯录】v1.0</div>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#E17055">
+  <div class="branch-head" style="background:#E17055">【前后端云服务开发】笔记大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E17055"><span class="tlabel">【云服务】大合集</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E17055"><span class="tbullet"></span>云笔记与云服务器</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E17055"><span class="tlabel">【前端】大合集</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#E17055"><span class="tlabel">html+css</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E17055"><span class="tbullet"></span>HTML+CSS学习笔记</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E17055"><span class="tbullet"></span>Vue学习笔记</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E17055"><span class="tlabel">【后端】大合集</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#E17055"><span class="tlabel">Mysql</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E17055"><span class="tbullet"></span>Mysql</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#0984E3">
+  <div class="branch-head" style="background:#0984E3">【数学建模】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#0984E3"><span class="tlabel">数学建模_study</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#0984E3"><span class="tlabel">第一章 层次分析法</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#0984E3"><span class="tbullet"></span>test</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#0984E3"><span class="tlabel">第零章 matlab入门及python数学建模入门</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#0984E3"><span class="tbullet"></span>python入门教程</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#0984E3"><span class="tlabel">数学建模入门教程</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#0984E3"><span class="tlabel">项目集合</span></summary>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#F39C12">
+  <div class="branch-head" style="background:#F39C12">【硬件】笔记大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">Arduino 笔记</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">ROS</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#F39C12"><span class="tbullet"></span>ros2入门教程</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">SolidWorks</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">《Stm32江科大（标准库）》笔记以及《HAL库重制版》笔记</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">数字电路</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">模拟电路</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">电赛电源类</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#F39C12"><span class="tlabel">香橙派教程</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#F39C12"><span class="tbullet"></span>写给小白的香橙派教程</div>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#E84393">
+  <div class="branch-head" style="background:#E84393">【算法刷题】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E84393"><span class="tlabel">Orangepi4pro_1.0.6_ubuntu_jammy_desktop_xfce_linux5.15.147</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E84393"><span class="tlabel">刷题集</span><span class="tcount">2</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E84393"><span class="tbullet"></span>1-1 二叉树</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E84393"><span class="tbullet"></span>笔记</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E84393"><span class="tlabel">哈希表</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E84393"><span class="tlabel">时间复杂度和空间复杂度</span></summary>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#E84393"><span class="tlabel">算法加数据结构基础</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#E84393"><span class="tbullet"></span>《尚硅谷》数据结构与算法</div>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#00CEC9">
+  <div class="branch-head" style="background:#00CEC9">【编程语言】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00CEC9"><span class="tlabel">【C++】笔记</span><span class="tcount">2</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C++笔记(基于C）</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C++练习</div>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#00CEC9"><span class="tlabel">image</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C++练习</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#00CEC9"><span class="tlabel">projects</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>project1</div>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00CEC9"><span class="tlabel">【C语言】笔记</span><span class="tcount">7</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C语言刷题集</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C语言课程笔记</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>C语言错题集</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>二进制互转十进制</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>在VS上配置C语言</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>在Vscode上配置C语言</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>数据结构C语言</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00CEC9"><span class="tlabel">【Markdown】笔记</span><span class="tcount">4</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>Markdown笔记</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>Markdown表情补充</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>Vscode中粉红色主题配置</div>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>image paste 补充</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#00CEC9"><span class="tlabel">【Python】笔记</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#00CEC9"><span class="tbullet"></span>Python笔记</div>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#636E72">
+  <div class="branch-head" style="background:#636E72">【自动化】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#636E72"><span class="tlabel">西门子TIA-Poratal笔记</span></summary>
+</details></li>
+  </ul>
+</div>
+<div class="branch-card" style="--c:#6D28D9">
+  <div class="branch-head" style="background:#6D28D9">【计算机基础】大合集</div>
+  <ul class="tree-list l1">
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6D28D9"><span class="tlabel">【系统】大合集</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-dir">
+<details>
+<summary class="tsummary-sm" style="--c:#6D28D9"><span class="tlabel">Linux</span></summary>
+<ul class="tree-list l3">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6D28D9"><span class="tbullet"></span>Linux学习笔记</div>
+</li>
+</ul>
+</details>
+</li>
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6D28D9"><span class="tbullet"></span>Windows</div>
+</li>
+</ul>
+</details></li>
+<li class="tnode tnode-dir"><details>
+<summary class="tsummary" style="--c:#6D28D9"><span class="tlabel">计算机基础</span><span class="tcount">1</span></summary>
+<ul class="tree-list l2">
+<li class="tnode tnode-leaf">
+<div class="tleaf" style="--c:#6D28D9"><span class="tbullet"></span>计算机导论</div>
+</li>
+</ul>
+</details></li>
+  </ul>
+</div>
+</div>
+
+<br><div style="text-align:center;font-size:.85rem;color:var(--muted);">🌳 点击目录可展开 · 自动扫描生成</div>
+<div class="footer">my_Notes 笔记知识树 · 163 节点 · 9 知识域</div>
+</body></html>

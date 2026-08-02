@@ -1,0 +1,390 @@
+#nice {
+    line-height: 1.8;
+    color: #2b2b2b;
+    font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;
+    letter-spacing: 2px;
+    background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.04) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.04) 3%, rgba(0, 0, 0, 0) 3%);
+    background-size: 20px 20px;
+    background-position: center center;
+}
+
+p{
+  font-size:16px !important;
+}
+
+
+
+h1 {
+    display: table;
+    margin: auto auto 1px 1px  !important;
+
+    padding: 0px 10px !important;
+    border-left: 5px solid #d480ad;
+    text-align: center;
+    font-size: 40px !important;
+}
+
+h2 {
+    display: table;
+    margin: 30px auto 20px auto !important;
+    padding: 0px 10px !important;
+    border-bottom: 5px solid #d480ad;
+    text-align: center;
+    font-size: 23px !important;
+}
+
+
+/* 三级标题 */
+
+h3 {color:#b96aa1!important;
+    border-bottom: #2b2b2b;
+    font-size: 20px !important;
+}
+
+h3:before {
+    content: "✒️ ";
+}
+
+h4 {color:#e78ebd!important;}
+
+h4:before {
+    content: "✏️";
+}
+
+h5 {
+    background-color: #f1f1f1;
+    border-left: 5px solid #fff;
+    padding-left: 5px !important;
+    box-shadow: -3px 0px #205792;
+}
+
+h6 {
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    box-shadow: 0px 2px #205792;
+}
+img{
+    width:95%;
+    margin: 5px auto 8px auto !important;
+    border-radius: 5px;
+    box-shadow:3px 2px 3px #ccc ;
+}
+strong{
+  color:#ff4c00 !important;
+}
+em{ 
+  font-weight:800;
+  font-style:normal !important;
+}
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+.markdown-preview.markdown-preview {
+  // modify your style here
+  // eg: background-color: blue;
+}
+
+.codeblock {
+    background-color: #282c34;
+    border-radius: 5px;
+    border: 1px solid #2b303b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+ 
+/* JavaScript代码块 */
+.language-javascript {
+    background-color: #f1f1f1;
+    font-family: 'Consolas', monospace;
+}
+ 
+/* 行号样式 */
+.codeblock .linenos {
+    color: #999;
+}
+ 
+/* 行高亮样式 */
+.highlight .c {
+    color: #555;
+}
+
+/*下面是代码块的css修改*/
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+
+
+*{
+    -webkit-font-smoothing:antialiased;
+    -webkit-overflow-scrolling:touch;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0.781);
+    -webkit-text-size-adjust:none; 
+    -webkit-touch-callout:none;
+    box-sizing:border-box
+}
+.markdown-preview code
+{
+    border-radius:2px; 
+    color:#9e81d4;
+    font-size: 16px;
+    font-size: 16px;
+    margin:0 2px;
+    padding:3px 5px;
+    white-space:pre-wrap
+}
+.markdown-preview code,.markdown-preview pre
+{
+    background-color:#f8f8f8;
+    font-family:Roboto Mono,Monaco,courier,monospace
+}
+.markdown-preview pre
+{
+    -moz-osx-font-smoothing:initial;
+    -webkit-font-smoothing:initial;
+    line-height:24px;
+    line-height:1.5rem;
+    margin:1.2em 0;
+    overflow:auto;
+    padding:0 22.4px;
+    padding:0 1.4rem;
+    position:relative;
+    word-wrap:normal
+}
+.token.cdata,.token.comment,.token.doctype,.token.prolog{
+    color:#0c650a !important;//注释
+}
+.token.namespace
+{
+    color:#1625fdef !important;
+}
+.token.boolean,.token.number
+{
+    color:#d2a45b!important;
+}
+.token.punctuation//括号
+{
+    color:#4d4d4d !important ;
+}
+.token.property
+{
+    color:#4d4d4d !important;//no警告，#
+}
+.token.tag
+{
+    color:#779cbf !important;
+}
+.token.string
+{
+    color:#56a355 !important;//hehe
+    color:var(--theme-color, #216949)
+}
+.token.selector
+{
+    color:#6679cc!important;
+}
+.token.attr-name
+{
+    color:#2973b7!important;
+}.language-css .token.string,.style .token.string,.token.entity,.token.url{
+    color:#22a2c9!important;
+}
+.token.attr-value,.token.control,.token.directive,.token.unit{
+    color:#42b983!important;   
+    color:var(--theme-color, #42b983)
+}
+.token.keyword{
+    color:#c173c0 !important;
+}.token.atrule,.token.regex,.token.statement{
+    color:#22a2c9!important;
+}
+.token.placeholder,.token.variable{
+    color:#3d8fd1!important;
+}.token.deleted{
+    text-decoration:line-through;
+}
+.token.inserted{
+    border-bottom:1px dotted #202746!important;
+    
+    text-decoration:none;
+}
+.token.italic{
+    font-style:italic;
+}.token.bold,.token.important{
+    font-weight:700;
+}
+.token.important{
+    color:#a9cec0!important;
+    
+}.token.entity{
+    cursor:help;
+}
+.markdown-preview pre>code
+{
+    -moz-osx-font-smoothing:initial;
+    -webkit-font-smoothing:initial;
+    background-color:#0c0d0e;
+    border-radius:2px;
+    color:#5281b6;
+    display:block;
+    font-family:Roboto Mono,Monaco,courier,monospace;
+    font-size:14px !important;
+    font-size:1rem;
+    line-height:2em;
+    max-width:inherit;
+    overflow:inherit;
+    padding:.8em 1.4em;
+    white-space:pre;
+}
+.markdown-preview pre[class*="language"]
+{
+    -moz-osx-font-smoothing:initial;
+    -webkit-font-smoothing:initial;
+    background-color:#0c0d0e;
+    border-radius: 10px 10px ;
+    color:#d19a66;
+    display:block;
+    font-family:Roboto Mono,Monaco,courier,monospace;
+    font-size:14px !important;
+    font-size:1rem;
+    line-height:2em;
+    max-width:inherit;
+    overflow:inherit;
+    padding: 30px 1.4em 0px 30px !important;
+    white-space:pre;
+    
+}
+.markdown-preview pre>code
+{
+    padding-left:0;    
+    padding-right:0
+}
+.markdown-preview code:after,
+.markdown-preview code:before
+{
+    letter-spacing:.8px;    
+    letter-spacing:.05rem;
+}
+code .token
+{
+    -moz-osx-font-smoothing:initial;    
+    -webkit-font-smoothing:initial;
+    min-height:24px;
+    min-height:1.5rem
+}
+pre:after
+{
+    color:#ccc;    
+    content:attr(data-lang);
+    font-size:16px;
+    font-size:16px;
+    font-weight:600;
+    height:15px;
+    line-height:15px;
+    padding:5px 10px 0;
+    position:absolute;
+    right:0;
+    text-align:right;
+    top:0
+}
+pre[data-line]
+{
+    position:relative;    
+    padding:1em 0 1em 3em !important
+}
+pre[data-line] .line-highlight-wrapper
+{
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:transparent;
+    display:block;
+    width:100%
+}
+pre[data-line] .line-highlight
+{
+    position:absolute;
+    left:0;
+    right:0;
+    padding:inherit 0;
+    margin-top:1em;
+    background:rgba(153,122,102,0.08);
+    background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));
+    pointer-events:none;
+    line-height:inherit;
+    white-space:pre
+}
+pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{
+    content:attr(data-start);   
+    position:absolute;
+    top:.4em;
+    left:.6em;
+    min-width:1em;
+    padding:0 .5em;
+    background-color:rgba(153,122,102,0.4);
+    color:#f5f2f0;
+    font:bold 65%/1.5 sans-serif;
+    text-align:center;
+    vertical-align:.3em;
+    border-radius:999px;
+    text-shadow:none;
+    box-shadow:0 1px white;
+    
+}
+pre[data-line] .line-highlight[data-end]:after
+{
+    content:attr(data-end);
+    top:auto;
+    bottom:.4em
+}
+
+pre:before {
+	content:" ";
+	position:absolute;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	background:#fc625d ;
+	width:12px;
+	height:12px;
+	left:10px;
+    top:10px;
+	-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;
+	box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;
+	z-index:2
+}
+pre {
+	background:#000000 ;
+	border-radius:5px;
+	font:15px/22px"Microsoft YaHei",Arial,Sans-Serif;
+	line-height:1.4;
+	margin-bottom:1.6em;
+	max-width:100%;
+    overflow: auto ;
+	text-shadow:none;
+	color:#000;
+	box-shadow:0 1px 3px 0 rgba(0,0,0,.4)
+}
+pre code::-webkit-scrollbar {
+    height:10x !important;
+    width:10x !important;
+    background-color:#1d1f21 !important
+}
+pre code::-webkit-scrollbar-track {
+    -webkit-box-shadow:inset 0 0 2px rgba(0, 0, 0, .3) !important;
+    border-radius:10px !important;
+    background-color:#21252b !important;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+pre code::-webkit-scrollbar-thumb {
+    border-radius:10px !important;
+    -webkit-box-shadow:inset 0 0 6px rgba(0, 0, 0, .5) !important;
+    background-color:#21252b !important;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+}
+
+//后面代码两背景色
+.markdown-preview pre[class*="language"] {
+    -moz-osx-font-smoothing: initial;
+    -webkit-font-smoothing: initial;
+    background-color: #eaeaea !important;}
+
+.markdown-preview pre > code {
+    -moz-osx-font-smoothing: initial;
+    -webkit-font-smoothing: initial;
+    background-color: #eaeaea!important;}

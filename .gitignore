@@ -1,0 +1,75 @@
+# ============================================================
+# my_Notes .gitignore  (合规复查于 2026-08-02)
+# 原则：笔记源码入库，密钥/大文件/第三方仓库留本地
+# ============================================================
+
+# ---------- IDE / OS ----------
+.idea/
+.vscode/
+*.DS_Store
+
+# ---------- Obsidian 本地配置（含插件与缓存） ----------
+.obsidian/
+
+# ---------- Python ----------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+*.egg-info/
+.python-version
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- 凭据 / 环境变量（切勿入库） ----------
+.env
+.env.*
+*.pth
+
+# ---------- 数据与日志目录 ----------
+dataSet/
+logs/
+logs_new/
+logs_xpu
+logs_cpu
+modelsave_cpu/
+modelsave_xpu/
+
+# ---------- 第三方克隆仓库（仅保留引用，不重复托管源码） ----------
+【人工智能】大合集/vllm/vllm/
+【人工智能】大合集/vllm/LMCache/
+【人工智能】大合集/vllm/CacheBlend/
+【人工智能】大合集/vllm/qwen/
+
+# ---------- 大文件 / 二进制（留本地） ----------
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.img
+*.iso
+*.safetensors
+*.pt
+*.ckpt
+*.bin
+*.onnx
+*.npy
+*.npz
+*.pdf
+*.xmind
+
+# 特定大文件（已超阈值）
+【硬件】笔记大合集/模拟电路/《电子元器件零基础入门》.pdf
+
+# ---------- 私密 / 个人项目（严禁上传） ----------
+【私密】/
+【我的项目】/
+
+# ---------- 杂项 ----------
+checkdevice.py
+uv.lock
+pyproject.toml
