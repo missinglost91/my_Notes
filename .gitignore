@@ -157,6 +157,9 @@ wandb/
 *.pdf
 *.xmind
 
+# ---------- Project folders kept local ----------
+【人工智能】大合集/端云协同推理/
+
 # ---------- Third-party cloned repositories under notes ----------
 【人工智能】大合集/vllm/vllm/
 【人工智能】大合集/vllm/LMCache/
