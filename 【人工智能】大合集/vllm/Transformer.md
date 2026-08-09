@@ -20,6 +20,7 @@
     - [3.3 传统 FFN vs 门控 FFN](#33-传统-ffn-vs-门控-ffn)
   - [四、三维张量 `(batch, seq, hidden)`](#四三维张量-batch-seq-hidden)
   - [五、Self-Attention（自注意力机制）](#五self-attention自注意力机制)
+      - [5.1.1 核心类比：图书馆查资料](#511-核心类比图书馆查资料)
     - [5.3 多头注意力（Multi-Head Attention）](#53-多头注意力multi-head-attention)
     - [5.4 每个头的维度](#54-每个头的维度)
     - [5.5 分组查询注意力（GQA）：为什么 K/V 不需要那么多头？](#55-分组查询注意力gqa为什么-kv-不需要那么多头)
@@ -284,6 +285,8 @@ x = torch.tensor([
 
 > 论文：《Attention Is All You Need》
 
+
+![20260808213428](https://lin01-image-1373317342.cos.ap-beijing.myqcloud.com/20260808213428.png)
 **核心公式**：
 
 $$
@@ -327,6 +330,9 @@ $$
 ```
 
 ### 5.3 多头注意力（Multi-Head Attention）
+
+
+![20260808213454](https://lin01-image-1373317342.cos.ap-beijing.myqcloud.com/20260808213454.png)
 
 **什么是"多头"？** 原始的 Attention 只有一个"头"（Single-head）。Multi-head 就是同时运行多个独立的 Attention，每个头关注不同的信息。
 

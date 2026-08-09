@@ -1,0 +1,20 @@
+        您购买《Transformer算法原理与实战》课件与源码，课程教程在B站开源。资料百度云与123云，123云可能不限速，两种方式取其一即可。由于该课程资料比较大，因此每种方式分几个网盘链接给您。
+相关课件：
+123云：
+链接:https://www.123865.com/s/uyWTTd-kGIrh提取码:g3Fc
+百度云：
+链接: https://pan.baidu.com/s/1QfNQvUnxDO4JcXMTJQfsgw?pwd=5tge提取码:5tge 
+
+源码与数据：
+123云：
+链接:https://www.123865.com/s/uyWTTd-oGIrh提取码:gfuu
+百度云：
+链接: https://pan.baidu.com/s/1vE5zb4HH6KaKRGjjQI2pEQ?pwd=wdc8提取码:wdc8 
+
+pycharm和anaconda安装包：
+123云：
+https://www.123pan.com/s/uyWTTd-Xyxrh.html提取码:56yL
+百度云：
+https://pan.baidu.com/s/1_dQf5PVq1_NpSaPb7dni-A?pwd=ae13 提取码: ae13
+
+注意：以上所有链接下载完毕后资料才是完整的，数据太大可以先下载课件课跟着视频学习，源码和数据集可慢慢下载。

@@ -100,6 +100,86 @@ vllm serve /root/autodl-tmp/models/Qwen2.5-7B-Instruct --trust-remote-code
 ```
 
 
+## 常见操作与进程管理
+
+### 进程查看与端口管理
+
+```bash
+# 查看GPU使用情况
+nvidia-smi
+
+# 查看端口占用情况
+lsof -i :8000
+
+# 杀死占用端口的进程
+kill -9 <PID>
+```
+
+> **💡 小贴士**：`lsof -i :8000` 和 `nvidia-smi` 显示的 PID 可能不同，这是因为 vLLM 采用父子进程架构：
+> 
+> ```
+> PID 2324772 (vllm)              ← API 服务器，监听 :8000，处理 HTTP 请求
+>     │
+>     └── PID 2326207 (VLLM::EngineCore)  ← GPU 推理引擎，实际执行模型推理
+>                 │
+>                 └── GPU 0, 90742 MiB   ← 模型权重 + KV Cache
+> ```
+> 
+> **进程职责说明**：
+> 
+> | 进程 | PID | 职责 |
+> |------|-----|------|
+> | API Server | 2324772 | 接收 HTTP 请求、调度、返回结果 |
+> | EngineCore | 2326207 | 持有 GPU 显存、执行推理计算 |
+> 
+> 它们是父子关系——EngineCore 是 API Server fork 出来的子进程，通过共享内存通信。这是 vLLM 的标准架构，完全正常！
+
+## tmux 使用指南
+
+tmux 是一个终端复用工具，可以在后台保持 vLLM 服务运行。
+
+### 启动 vLLM 服务
+
+```bash
+# 1. 进入 vLLM 项目目录
+cd /home/zongz/linjr/ljr_vllm/
+
+# 2. 创建并进入名为 vllm 的 tmux 会话
+tmux new -s vllm
+
+# 3. 激活虚拟环境
+source .venv/bin/activate
+
+# 4. 在 tmux 中启动 vLLM（使用 uv run）
+uv run vllm serve /home/zongz/Models/Qwen2.5-14B-Instruct \
+    --tensor-parallel-size 2 \
+    --port 8000 \
+    --host 0.0.0.0
+```
+
+### tmux 常用命令
+
+```bash
+# 重新连接到已存在的会话
+tmux attach -t vllm
+
+# 断开当前会话（程序仍在后台运行）
+# 按 Ctrl+B 然后按 D
+
+# 关闭并杀死会话
+tmux kill-session -t vllm
+
+# 列出所有会话
+tmux ls
+```
+
+### 实用技巧
+
+- **断开连接**：按 `Ctrl+B` 然后按 `D`，这样可以安全地断开会话而不中断正在运行的程序
+- **重新连接**：使用 `tmux attach -t vllm` 重新连接到会话
+- **查看会话列表**：使用 `tmux ls` 查看当前所有 tmux 会话
+- **杀死指定会话**：使用 `tmux kill-session -t <session_name>` 杀死指定名称的会话
+
 ## 第二章： 前置知识基础
 ### 2-1 pytorch基础
 
