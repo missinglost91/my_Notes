@@ -156,6 +156,8 @@ wandb/
 # ---------- Optional large exports ----------
 *.pdf
 *.xmind
+*.pptx
+*.ppt
 
 # ---------- Project folders kept local ----------
 【人工智能】大合集/端云协同推理/
