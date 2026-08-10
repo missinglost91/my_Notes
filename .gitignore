@@ -99,6 +99,7 @@ logs_cpu/
 *.pid
 *.tmp
 *.temp
+tmp_ticl_extracted.txt
 tmp/
 temp/
 
